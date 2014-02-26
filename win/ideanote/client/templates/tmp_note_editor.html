@@ -1,2 +1,107 @@
 <template name="tmp_note_editor">
+    <div class="container">
+        <h1>{{notehead}}</h1>
+        <hr />
+        
+        <div class="panel panel-default margintop40">
+
+            <div class="panel-heading" id="notetoolbar">
+                <div class="btn-group">
+                    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" class="btn btn-default">
+                        <b>h1</b>
+                    </a>
+                    <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" class="btn btn-default">
+                        <b>h2</b>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a data-wysihtml5-command="bold" title="CTRL+B" class="btn btn-default">
+                        <i class="fa fa-bold"></i>
+                    </a>
+                    <a data-wysihtml5-command="italic" title="CTRL+I" class="btn btn-default">
+                        <i class="fa fa-italic"></i>
+                    </a>
+                    <a data-wysihtml5-command="underline" title="CTRL+U" class="btn btn-default">
+                        <i class="fa fa-underline"></i>
+                    </a>
+                </div>
+                <a data-wysihtml5-command="createLink" class="btn btn-default">
+                    <i class="fa fa-chain"></i>
+                </a>
+                <a data-wysihtml5-command="insertImage" class="btn btn-default">
+                    <i class="fa fa-picture-o"></i>
+                </a>
+                <div class="btn-group">
+                    <a data-wysihtml5-command="insertUnorderedList" class="btn btn-default">
+                        <i class="fa fa-list"></i>
+                    </a>
+                    <a data-wysihtml5-command="insertOrderedList" class="btn btn-default">
+                        <i class="fa fa-list-ol"></i>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a data-wysihtml5-command="undo" class="btn btn-default">
+                        <i class="fa fa-reply"></i>
+                    </a>
+                    <a data-wysihtml5-command="redo" class="btn btn-default">
+                        <i class="fa fa-share"></i>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a data-wysihtml5-command="justifyLeft" class="btn btn-default">
+                        <i class="fa fa-align-left"></i>
+                    </a>
+                    <a data-wysihtml5-command="justifyCenter" class="btn btn-default">
+                        <i class="fa fa-align-center"></i>
+                    </a>
+                    <a data-wysihtml5-command="justifyRight" class="btn btn-default">
+                        <i class="fa fa-align-right"></i>
+                    </a>
+                </div>
+                <a data-wysihtml5-command="insertSpeech" class="btn btn-default">
+                    <i class="fa fa-microphone"></i>
+                </a>
+                </a>
+                <a data-wysihtml5-action="change_view" class="btn btn-default">
+                    <i class="fa fa-code"></i>source</a>
+
+                <div data-wysihtml5-dialog="createLink" style="display: none; margin-top:10px;">
+                    <label>
+                        Link:
+                        <input data-wysihtml5-dialog-field="href" value="http://">
+                    </label>
+                    <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;
+                    <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                </div>
+
+                <div data-wysihtml5-dialog="insertImage" style="display: none; margin-top:10px;">
+                    <label>
+                        Image:
+                        <input data-wysihtml5-dialog-field="src" value="http://">
+                    </label>
+                    <label>
+                        Align:
+                        <select data-wysihtml5-dialog-field="className">
+                            <option value="">default</option>
+                            <option value="wysiwyg-float-left">left</option>
+                            <option value="wysiwyg-float-right">right</option>
+                        </select>
+                    </label>
+                    <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;
+                    <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <textarea id="txaNoteContent" class="form-control" style="height:350px">
+                </textarea>
+            </div>
+            <div class="panel-footer">
+                <button id="btnSubmit" class="btn btn-primary">Save</button>
+                <button id="btnReset" class="btn btn-info">Reset</button>
+                <button id="btnDelete" class="btn btn-danger">Delete</button>
+
+            </div>
+
+        </div>
+    </div>
 </template>
