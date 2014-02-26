@@ -1,6 +1,7 @@
 Template.tmp_header.created = function(){};
 Template.tmp_header.ActiveUsername = function(){
     var usr = Users.findOne(Session.get(SessionRef.Name.ActiveUserId));
+    
     return usr && usr.FName + " " + usr.LName;
 };
 Template.tmp_header.loggedin_user = function(){

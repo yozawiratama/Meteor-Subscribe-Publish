@@ -6,32 +6,26 @@ Template.tmp_note_editor.notehead = function () {
     else return "Edit Note";
 };
 Template.tmp_note_editor.rendered = function () {
-    var term = new wysihtml5.Editor("txaNoteContent", {
-        toolbar: "notetoolbar",
-        stylesheets: "/plugins/stylesheet.css",
-        parserRules: wysihtml5ParserRules
-    });
+//    var term = new wysihtml5.Editor("txaNoteContent", {
+//        toolbar: "notetoolbar",
+//        stylesheets: "/plugins/stylesheet.css",
+//        parserRules: wysihtml5ParserRules
+//    });
 };
 Template.tmp_note_editor.events({
     'click #btnSubmit': function (e) {
         e.preventDefault();
         var state = Session.get(SessionRef.Name.ActiveNoteId);
-        console.log(state);
         if (state == undefined) {
             var content = $('#txaNoteContent');
             var title = "";
             var user_id = Session.get(SessionRef.Name.ActiveUserId);
-            console.log(user_id);
-            Meteor.call("AddNewNote", title, content.val(), user_id, function (err, res) {
-                console.log(res);
+            Meteor.call('AddNewNote', title, content.val(), user_id, function (err, res) {
                 if (err) {} else {
-//                    console.log(res);
-//                    console.log(Session.get(SessionRef.Name.ActiveUserId));
-//                    Router.Navigate("/listnote/" + Session.get(SessionRef.Name.ActiveUserId), true);
-                    
-                    
+                    Router.navigate("/listnote/"+user_id, true);
                 }
             });
+            
         } else {}
     },
     'click #btnReset': function (e) {

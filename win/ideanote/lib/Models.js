@@ -9,7 +9,7 @@ USER = {
 };
 
 
-Notes = {
+NOTE = {
     _id : "",
     Title : "",
     Content : "",

@@ -10,7 +10,9 @@ Template.tmp_signin.events({
         var pwd = $('#inppwd');
         Meteor.call("UserLogin", email.val(), pwd.val(), function (err, response) {
             if (err) {} else {
-                Router.navigate("/listnote/"+response, true);
+                if(response != false)
+                    Router.navigate("/listnote/"+response, true);
+                else $.growl.error({message: "Sign In is Fail" });
             }
 
         });
