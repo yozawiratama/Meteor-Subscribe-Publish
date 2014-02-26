@@ -6,11 +6,11 @@ Template.tmp_note_editor.notehead = function () {
     else return "Edit Note";
 };
 Template.tmp_note_editor.rendered = function () {
-//    var term = new wysihtml5.Editor("txaNoteContent", {
-//        toolbar: "notetoolbar",
-//        stylesheets: "/plugins/stylesheet.css",
-//        parserRules: wysihtml5ParserRules
-//    });
+    var term = new wysihtml5.Editor("txaNoteContent", {
+        toolbar: "notetoolbar",
+        stylesheets: "/plugins/stylesheet.css",
+        parserRules: wysihtml5ParserRules
+    });
 };
 Template.tmp_note_editor.events({
     'click #btnSubmit': function (e) {
