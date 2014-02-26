@@ -1,11 +1,13 @@
 <template name="tmp_ctn_list_note_item">
-    <div class="panel panel-default">
-        <div id="{{_id}}" class="panel-body">
-        </div>
-        <div class="panel-footer">
-            <button class="btn btn-default">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-            {{LastModifiedDate}}
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div id="{{_id}}" class="panel-body">
+            </div>
+            <div class="panel-footer">
+                <button id="btnEdit" class="btn btn-default">Edit</button>
+                <button id="btnDelete" class="btn btn-danger">Delete</button>
+                {{LastModifiedDate}}
+            </div>
         </div>
     </div>
 </template>
